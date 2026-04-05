@@ -14,18 +14,26 @@ export function Contact() {
     setIsSubmitting(true);
 
     try {
-      const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:4000';
-      const response = await fetch(`${apiBaseUrl}/api/contact`, {
+      const formspreeEndpoint =
+        import.meta.env.VITE_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xaqlawgk';
+
+      const response = await fetch(formspreeEndpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Accept: 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          email: formData.email,
+          message: formData.message,
+          subject: 'New portfolio contact message',
+        }),
       });
 
       if (!response.ok) {
         const data = await response.json().catch(() => null);
-        throw new Error(data?.error || 'Failed to send message.');
+        const errorMessage = data?.errors?.[0]?.message || data?.error || 'Failed to send message.';
+        throw new Error(errorMessage);
       }
 
       alert('Thank you for your message! I will get back to you soon.');

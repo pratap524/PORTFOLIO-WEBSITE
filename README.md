@@ -77,6 +77,21 @@ npm run dev
 
 Server runs at: http://localhost:4000
 
+## Contact Form on Vercel (Formspree)
+
+If you do not want to deploy the backend mail server, use Formspree:
+
+1. Create a form in Formspree and copy the endpoint URL (example: `https://formspree.io/f/abcdwxyz`).
+2. In Vercel project settings, add:
+
+```sh
+VITE_FORMSPREE_ENDPOINT=https://formspree.io/f/your_form_id
+```
+
+3. Redeploy the Vercel project.
+
+The website contact form will then send messages directly through Formspree.
+
 ## Featured Projects
 
 - Motoservices
