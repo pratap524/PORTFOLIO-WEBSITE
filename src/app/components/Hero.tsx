@@ -4,6 +4,8 @@ import { motion } from 'motion/react';
 export function Hero() {
   const resumeUrl = '/resume.pdf';
   const profileImageUrl = '/profile.jpeg';
+  const gmailComposeUrl =
+    'https://mail.google.com/mail/?view=cm&fs=1&to=majorpratapsinghsisodiya%40gmail.com';
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
@@ -35,7 +37,9 @@ export function Hero() {
 
             <div className="pt-4 space-y-3">
               <a
-                href="mailto:majorpratapsinghsisodiya@gmail.com"
+                href={gmailComposeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-3 text-slate-600 dark:text-slate-400 hover:text-accent transition-colors"
               >
                 <Mail className="w-5 h-5 text-accent" />

@@ -3,6 +3,9 @@ import { motion } from 'motion/react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
 export function Contact() {
+  const gmailComposeUrl =
+    'https://mail.google.com/mail/?view=cm&fs=1&to=majorpratapsinghsisodiya%40gmail.com';
+
   const [formData, setFormData] = useState({
     email: '',
     message: '',
@@ -82,7 +85,9 @@ export function Contact() {
           >
             <div className="space-y-6">
               <a
-                href="mailto:majorpratapsinghsisodiya@gmail.com"
+                href={gmailComposeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-start gap-4 p-4 bg-white dark:bg-slate-700 rounded-lg border border-slate-200 dark:border-slate-600 hover:border-accent dark:hover:border-accent transition-colors"
               >
                 <div className="flex-shrink-0 w-12 h-12 bg-accent/10 dark:bg-accent/20 rounded-lg flex items-center justify-center">

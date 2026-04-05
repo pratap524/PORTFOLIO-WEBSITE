@@ -2,6 +2,8 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const gmailComposeUrl =
+    'https://mail.google.com/mail/?view=cm&fs=1&to=majorpratapsinghsisodiya%40gmail.com';
 
   return (
     <footer className="bg-slate-900 dark:bg-slate-950 text-white py-12 px-4 sm:px-6 lg:px-8">
@@ -65,7 +67,9 @@ export function Footer() {
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
-                href="mailto:majorpratapsinghsisodiya@gmail.com"
+                href={gmailComposeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-3 bg-slate-800 dark:bg-slate-900 rounded-lg hover:bg-accent transition-colors"
                 aria-label="Email"
               >
